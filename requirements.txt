@@ -1,0 +1,10 @@
+tenacity==9.0.0
+langchain==0.3.12
+langchain-google-genai==2.1.5
+langchain_community==0.3.12
+langgraph==0.2.59
+pysqlite3-binary==0.5.4
+langchain_chroma==0.1.4
+pandas==2.2.3
+pypdf==5.1.0
+nbformat==5.10.4
