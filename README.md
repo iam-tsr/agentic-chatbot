@@ -47,4 +47,4 @@ Contributions are welcome! Please check the issues page for open tasks.
 
 ### Reference
 
-Inspired and leveraged from Kumaran Ponnambalam
+Inspired by and leveraging the work of Kumaran Ponnambalam.
