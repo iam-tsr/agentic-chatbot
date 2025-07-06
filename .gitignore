@@ -29,3 +29,5 @@ build/
 *.tmp
 *.orig
 *.swp
+chroma_db1/
+chroma_db2/
