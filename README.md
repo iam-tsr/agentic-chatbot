@@ -34,7 +34,7 @@ The solution is built on top of **LangGraph** for agent orchestration and workfl
 - If the query is about document content, it is routed to the PDF Q\&A agent.
 - If the query is greeting or good byes, it is handled by a default conversational agent.
 
-![workflows](image.png)
+![workflows](images/agentic_workflows.png)
 
 ### RAG with LlamaIndex
 
