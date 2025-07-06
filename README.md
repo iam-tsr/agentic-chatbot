@@ -1,50 +1,82 @@
-# Ecommerce Agentic Chatbot
+# Agentic Chatbot with LangGraph and LlamaIndex
 
-An intelligent, autonomous chatbot system designed to enhance e-commerce customer experiences through AI-powered conversations and task execution.
+This repository demonstrates how to build a powerful, modular chatbot that leverages the strengths of both **LangGraph** and **LlamaIndex** frameworks.
 
-### Overview
+The solution is built on top of **LangGraph** for agent orchestration and workflow routing, and **LlamaIndex** for efficient document ingestion, indexing, and semantic retrieval from PDFs.
 
-This project implements an agentic chatbot that can assist customers with shopping experiences, product recommendations, order processing, and customer service inquiries. It leverages modern AI techniques to provide autonomous, context-aware assistance in e-commerce environments.
+---
 
-### Key Features
+[**LangGraph**](https://langchain-ai.github.io/langgraph/) is a low-level orchestration framework designed for building, managing, and deploying long-running, stateful agents. It enables developers to define complex agent workflows as graphs, where each node represents a task or agent, and edges define the flow of information or control.
 
-- **Natural Language Understanding**: Process and comprehend complex customer queries
-- **Autonomous Decision Making**: Execute tasks without human intervention based on learned patterns
-- **Product Recommendations**: Suggest relevant products based on user preferences and history
-- **Order Management**: Help users track, modify or place orders
-- **Customer Support Automation**: Handle common support requests and questions
+[**LlamaIndex**](https://docs.llamaindex.ai/en/stable/) is a flexible data framework for integrating private and public data with large language models (LLMs). It provides tools for data ingestion, indexing, and querying, making it ideal for building retrieval-augmented applications such as Q\&A bots over document corpora.
 
-### Project Stucture
 
-![sad](./images/flow.gif)
+## System Architecture
 
-### Getting Started
+| Component | Technology | Description |
+| :-- | :-- | :-- |
+| Routing Workflow | LangGraph | Directs user queries to the appropriate agent or tool based on intent. |
+| RAG Engine | LlamaIndex | Retrieves and synthesizes answers from PDF-based knowledge base. |
+| Chat Interface | Custom/LLM | Handles user interaction and maintains conversation state. |
 
-#### Prerequisites
+![routing-workflow.png](images/routing-workflow.png)
+
+## How It Works
+
+### Routing Workflow Agent
+
+- **Graph Construction:** The agent workflow is defined as a graph, where each node represents a specialized agent or tool (e.g., RAG, functions, or Agents).
+- **Routing Logic:** When a user submits a query, the router node classifies the intent and directs the query to the appropriate agent.
+- **Conditional Paths:** The workflow supports conditional branching, allowing for dynamic and context-aware routing.
+
+**Example:**
+
+- If the query is about document content, it is routed to the PDF Q\&A agent.
+- If the query is greeting or good byes, it is handled by a default conversational agent.
+
+![workflows](image.png)
+
+### RAG with LlamaIndex
+
+- **Document Ingestion:** PDF files are loaded and parsed into text chunks.
+- **Indexing:** The text is indexed using vector embeddings for semantic search.
+- **Query Processing:** When a routed query reaches the Q\&A agent, LlamaIndex retrieves relevant passages from the indexed PDFs and synthesizes an answer using the LLM.
+- **Multi-Document Support:** The system can handle queries across multiple PDFs and combine information as needed.
+
+
+### Integration: Bringing It All Together
+
+- **Tool Abstraction:** LlamaIndex's query engine is exposed as a tool within the LangGraph workflow, allowing agents to invoke document retrieval as needed.
+- **Stateful Orchestration:** LangGraph manages the flow of messages, state, and tool calls, ensuring a seamless user experience.
+- **Extensibility:** New agents or tools can be added to the workflow graph with minimal changes, supporting future expansion.
+
+
+## Setup \& Installation
+
+1. **Clone the Repository:**
 
 ```bash
-# Python 3.12+ recommended
-python -m pip install -r requirements.txt
+git clone https://github.com/yourusername/agentic-chatbot.git
+cd agentic-chatbot
 ```
 
-#### Configuration
+2. **Install Dependencies:**
+
+```bash
+pip install -r requirements.txt
+# Ensure you have created a separate virtual environment for installing these packages
+```
+
+3. **Configuration:**
 
 Create a `.env` file with necessary API keys and environment variables:
 
-```
+```bash
 cp .env.example .env
 ```
 
-#### Running the Application
+## Customization
 
-```bash
-python main.py
-```
-
-### Contributing
-
-Contributions are welcome! Please check the issues page for open tasks.
-
-### Reference
-
-Inspired by and leveraging the work of Kumaran Ponnambalam.
+- **Add New Agents:** Define new nodes in the LangGraph workflow for additional capabilities.
+- **Change Routing Logic:** Modify the router node to support new query types or more advanced classification.
+- **Index More Data:** Use LlamaIndex to ingest and index other data sources (e.g., databases, web pages).
