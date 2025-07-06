@@ -8,3 +8,7 @@ langchain_chroma==0.1.4
 pandas==2.2.3
 pypdf==5.1.0
 nbformat==5.10.4
+llama-index==0.12.46
+llama-index-llms-gemini==0.5.0
+llama-index-vector-stores-chroma==0.4.2
+chromadb==0.5.23
