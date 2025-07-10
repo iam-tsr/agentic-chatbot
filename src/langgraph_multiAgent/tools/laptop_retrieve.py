@@ -20,7 +20,7 @@ vector_store = ChromaVectorStore(chroma_collection=collection)
 
 # === Load PDF documents directly ===
 pdf_reader = PDFReader()
-# For a single PDF file
+
 documents = pdf_reader.load_data(file="src/langgraph_multiAgent/tools/knowledge_base/Laptop_product_descriptions.pdf")
 
 # === Create index and store in ChromaDB ===
