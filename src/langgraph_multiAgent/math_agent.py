@@ -2,16 +2,12 @@ from langchain_core.messages import AnyMessage, SystemMessage, HumanMessage, Too
 import json
 from src.langgraph_multiAgent.utils.gemini_o1 import llm
 
-# import sys
-# sys.path.append('/mnt/Linux/Projects/agentic-chatbot/src/langgraph_multiAgent/tools')
-
 from src.langgraph_multiAgent.tools.multiply_tool import multiply
 from src.langgraph_multiAgent.tools.addition_tool import addition
 from langgraph.prebuilt import create_react_agent
 from langgraph.checkpoint.memory import MemorySaver
 
 
-#Note that this is a string, since the model init only accepts a string.
 system_prompt = """
     You are a helpful assistant that can perform mathematical operations only.
     """
