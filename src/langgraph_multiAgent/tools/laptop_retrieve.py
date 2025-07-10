@@ -5,9 +5,6 @@ from llama_index.llms.google_genai import GoogleGenAI
 from llama_index.embeddings.gemini import GeminiEmbedding
 from langchain_core.tools import tool
 
-# import sys
-# sys.path.append('/mnt/Linux/Projects/agentic-chatbot/src/langgraph_multiAgent')
-
 
 from src.langgraph_multiAgent.utils.gemini_o2 import GoogleGenAI, GeminiEmbedding
 import chromadb
