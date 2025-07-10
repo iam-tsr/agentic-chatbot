@@ -4,10 +4,9 @@ import os
 
 #Setup the LLM for the agent
 
-#API info. Replace with your own keys and end points
 os.environ["GOOGLE_API_KEY"] = os.getenv("GOOGLE_API_KEY")
 
-# Initialize the embeddings object with the Gemini model
+# Initialize the LLM object with the Gemini model
 llm = init_chat_model("google_genai:gemini-2.5-flash")
 
 # Initialize the embeddings object with the Gemini model
