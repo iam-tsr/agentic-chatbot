@@ -1,5 +1,5 @@
 import sys
-sys.path.append(('/mnt/Linux/Projects/agentic-chatbot'))
+sys.path.append(('../agentic-chatbot'))
 
 from typing import TypedDict, Annotated
 from langgraph.graph import StateGraph, END
