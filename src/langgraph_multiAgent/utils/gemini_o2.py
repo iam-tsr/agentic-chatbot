@@ -4,7 +4,7 @@ from llama_index.core import Settings
 
 
 Settings.llm = GoogleGenAI(
-    model="gemini-2.0-flash"
+    model="gemini-2.5-flash"
 )
 
 Settings.embed_model = GeminiEmbedding(
