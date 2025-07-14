@@ -148,7 +148,7 @@ router_agent = RouterAgent(
     llm,
     system_prompt,
     smalltalk_prompt,
-    debug=True
+    debug=False
 )
 
 
