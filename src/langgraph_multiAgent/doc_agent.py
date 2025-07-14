@@ -9,15 +9,11 @@ from langgraph.checkpoint.memory import MemorySaver
 
 #Note that this is a string, since the model init only accepts a string.
 system_prompt = """
-    You are a helpful agent that can answer questions about laptops and EcoSprint vehicles based on the provided knowledge base.
-    You will use the tools provided to retrieve information from the knowledge base.
-    You will respond in a concise and informative manner.
+    You are a helpful agent that can answer questions about laptops and EcoSprint vehicle.
     If you do not know the answer, you will say "I don't know" instead of making up an answer.
-    You will use the tools in the following order:
-    1. Use the laptop_query tool to answer questions about laptops.
-    2. Use the ecoSprint_query tool to answer questions about EcoSprint vehicles.
-    You will not use any other tools or resources.
-    You will respond with a single message containing the answer to the question.
+    Try to answer the query in short and on point.
+
+    Do not answer questions about other topics or provide information that is not related to laptops or EcoSprint vehicle.
     """
 
 tools = [laptop_query, ecoSprint_query]
